@@ -6,7 +6,7 @@ import cx from "clsx";
 import ProcessHeader from "./ProcessHeader";
 import ProcessChart from "./ProcessChart";
 import ProcessLog from "./ProcessLog";
-import ProcessMetricRow from "./ProcessMetricRow";
+import ProcessClusterMetricRow from "./ProcessClusterMetricRow";
 import ProcessClusterAction from "./ProcessClusterAction";
 import classes from "@/styles/process.module.css";
 
@@ -85,8 +85,8 @@ export default function ProcessCluster({ processes, clusterName, setting }: Proc
             )}
           </Flex>
           <Flex align={"center"} rowGap={"10px"} columnGap={"40px"} wrap={"wrap"} justify={"end"}>
-            <ProcessMetricRow
-              process={primaryProcess}
+            <ProcessClusterMetricRow
+              processes={processes}
               refetchInterval={setting.polling.frontend}
               showMetric={onlineCount > 0}
             />
