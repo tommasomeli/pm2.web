@@ -26,9 +26,9 @@ export default function ProcessClusterLog({ processes, refetchInterval }: Proces
       <ScrollArea h={"100%"} style={{ overflowX: "hidden" }}>
         <Text fw="bold">Cluster Logs ({processes.length} instances)</Text>
         <div>
-          {getLogs?.data?.map((log) => (
+          {getLogs?.data?.map((log, index) => (
             <Text
-              key={log._id}
+              key={log?._id || index}
               size="md"
               fw={600}
               c={log.type == "success" ? "teal.6" : log.type == "error" ? "red.6" : "blue.4"}
