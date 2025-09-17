@@ -102,5 +102,5 @@ export default function ProcessClusterChart({ processes, refetchInterval, showMe
         areaChartProps={{ syncId: "cluster-stats" }}
       />
     </Flex>
-  );
+    );
 }

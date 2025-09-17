@@ -42,5 +42,5 @@ export default function ProcessClusterLog({ processes, refetchInterval }: Proces
         </div>
       </ScrollArea>
     </Paper>
-  );
+    );
 }

@@ -77,6 +77,6 @@ export default function ProcessClusterMetricRow({ processes, refetchInterval, sh
         Icon={IconHistory} 
         value={showMetric && ms(metrics.uptime)} 
       />
-    </Flex>
-  );
+      </Flex>
+    );
 }
