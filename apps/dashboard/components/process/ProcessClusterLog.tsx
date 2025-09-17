@@ -35,7 +35,7 @@ export default function ProcessClusterLog({ processes, refetchInterval }: Proces
               component="pre"
               my="0px"
             >
-              {log.createdAt ? new Date(log.createdAt).toLocaleTimeString() : ''} {log.message}
+              {log?.createdAt ? new Date(log.createdAt).toLocaleTimeString() : ''} {log?.message}
             </Text>
           ))}
           {getLogs.error && <div>Error: {getLogs.error.message}</div>}
