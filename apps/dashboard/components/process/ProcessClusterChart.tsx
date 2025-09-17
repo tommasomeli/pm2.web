@@ -16,7 +16,9 @@ export default function ProcessClusterChart({ processes, refetchInterval, showMe
   // Get online processes only
   const onlineProcesses = processes.filter(p => p.status === "online");
   const processIds = onlineProcesses.map(p => p._id);
-  const serverIds = [...new Set(onlineProcesses.map(p => p.server.toString()))];
+  const serverIds = onlineProcesses
+    .map(p => p.server.toString())
+    .filter((serverId, index, array) => array.indexOf(serverId) === index);
 
   const getStats = trpc.server.getStats.useQuery(
     {
