@@ -31,7 +31,7 @@ export default function ProcessClusterLog({ processes, refetchInterval }: Proces
               key={log?._id || index}
               size="md"
               fw={600}
-              c={log.type == "success" ? "teal.6" : log.type == "error" ? "red.6" : "blue.4"}
+              c={log?.type == "success" ? "teal.6" : log?.type == "error" ? "red.6" : "blue.4"}
               component="pre"
               my="0px"
             >
