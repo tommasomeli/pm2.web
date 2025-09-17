@@ -4,9 +4,9 @@ import { IProcess, ISetting } from "@pm2.web/typings";
 import cx from "clsx";
 
 import ProcessHeader from "./ProcessHeader";
-import ProcessChart from "./ProcessChart";
-import ProcessLog from "./ProcessLog";
-import ProcessMetricRow from "./ProcessMetricRow";
+import ProcessClusterChart from "./ProcessClusterChart";
+import ProcessClusterLog from "./ProcessClusterLog";
+import ProcessClusterMetricRow from "./ProcessClusterMetricRow";
 import ProcessClusterAction from "./ProcessClusterAction";
 import classes from "@/styles/process.module.css";
 
@@ -85,8 +85,8 @@ export default function ProcessCluster({ processes, clusterName, setting }: Proc
             )}
           </Flex>
           <Flex align={"center"} rowGap={"10px"} columnGap={"40px"} wrap={"wrap"} justify={"end"}>
-            <ProcessMetricRow
-              process={primaryProcess}
+            <ProcessClusterMetricRow
+              processes={processes}
               refetchInterval={setting.polling.frontend}
               showMetric={onlineCount > 0}
             />
@@ -99,13 +99,14 @@ export default function ProcessCluster({ processes, clusterName, setting }: Proc
         <Transition transition="scale-y" duration={500} mounted={!collapsed}>
           {(styles) => (
             <div style={{ ...styles }}>
-              <ProcessChart
-                processId={primaryProcess._id}
+              <ProcessClusterChart
+                processes={processes}
                 refetchInterval={setting.polling.frontend}
                 showMetric={onlineCount > 0}
+                polling={setting.polling.frontend}
               />
-              <ProcessLog 
-                processId={primaryProcess._id} 
+              <ProcessClusterLog 
+                processes={processes}
                 refetchInterval={setting.polling.frontend} 
               />
             </div>
